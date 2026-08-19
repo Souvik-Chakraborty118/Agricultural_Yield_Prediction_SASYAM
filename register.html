@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SASYAM - Register</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="glass-effect-section">
+    <div class="glass-effect-panel mx-auto">
+      <button id="backToLoginBtn" class="modal-close" aria-label="Close registration">&times;</button>
+      <div class="mb-16">
+        <h2 data-i18n="signupTitle">Create Your SASYAM ID</h2>
+        <p data-i18n="signupSubtitle">No Google account needed. Create your own SASYAM ID to access the app.</p>
+      </div>
+      
+      <form id="sasyamSignupForm">
+        <div class="form-group mb-10">
+          <label data-i18n="email">Email Address</label>
+          <input type="email" id="sasyamEmail" required placeholder="your@email.com">
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="password">Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="sasyamPassword" class="password-input" required placeholder="At least 8 characters" minlength="8">
+            <button type="button" class="password-toggle-btn" data-target="sasyamPassword" data-i18n="show">Show</button>
+          </div>
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="passwordConfirm">Confirm Password</label>
+          <div class="password-wrapper">
+            <input type="password" id="sasyamPasswordConfirm" class="password-input" required placeholder="Re-enter password" minlength="8">
+            <button type="button" class="password-toggle-btn" data-target="sasyamPasswordConfirm" data-i18n="show">Show</button>
+          </div>
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="phone">Mobile Number</label>
+          <input type="tel" id="sasyamPhone" required placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}">
+        </div>
+
+        <div class="form-group mb-10">
+          <label data-i18n="name">Full Name (Farmer)</label>
+          <input type="text" id="sasyamName" required placeholder="Your name">
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="farmLocation">Farm Location</label>
+          <input type="text" id="sasyamLocation" required placeholder="City/District">
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="farmSize">Farm Size (Hectares)</label>
+          <input type="number" id="sasyamFarmSize" step="0.01" min="0" required placeholder="e.g., 5.5">
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="experience">Experience (Years)</label>
+          <input type="number" id="sasyamExperience" min="0" max="100" required placeholder="Years of farming">
+        </div>
+        
+        <div class="form-group mb-10">
+          <label data-i18n="primaryCrop">Primary Crop</label>
+          <select id="sasyamCrop" required>
+            <option value="">-- Select Primary Crop --</option>
+            <option value="Wheat">Wheat</option>
+            <option value="Rice">Rice</option>
+            <option value="Sugarcane">Sugarcane</option>
+            <option value="Maize">Maize</option>
+            <option value="Potato">Potato</option>
+            <option value="Cotton">Cotton</option>
+            <option value="Soyabean">Soyabean</option>
+          </select>
+        </div>
+        
+        <div class="terms-box">
+          <label class="terms-label">
+            <input type="checkbox" id="sasyamTerms" required class="auto-width"> 
+            <span data-i18n="agreeTerms">I agree to the SASYAM Terms and Conditions</span>
+          </label>
+          <span data-i18n="dataSecurity">Your data is stored securely and never shared with third parties.</span>
+        </div>
+        
+        <div class="modal-actions">
+          <button type="submit" class="primary-action full-width" data-i18n="createAccount">Create Account</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
