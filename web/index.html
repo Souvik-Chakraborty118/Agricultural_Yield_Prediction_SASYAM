@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SASYAM Analytical Engine</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="mainNavigation" class="topbar hidden">
+    <div class="brand">
+      <img src="assets/logo.jpeg" alt="SASYAM logo" class="brand-logo">
+      <div>
+        <strong>SASYAM</strong>
+        <span data-i18n="brandSub">Analytical Engine</span>
+      </div>
+    </div>
+    <nav>
+      <select id="languageSelect" class="language-select" aria-label="Language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+        <option value="bn">বাংলা</option>
+        <option value="te">తెలుగు</option>
+        <option value="ta">தமிழ்</option>
+        <option value="mr">मराठी</option>
+        <option value="gu">ગુજરાતી</option>
+        <option value="kn">ಕನ್ನಡ</option>
+        <option value="ml">മലയാളം</option>
+        <option value="pa">ਪੰਜਾਬੀ</option>
+        <option value="ne">नेपाली</option>
+      </select>
+      <button class="nav-button" data-target="entrance" data-i18n="home">Home</button>
+      <button class="nav-button auth-only hidden" data-target="calculator" data-i18n="calculator">Calculator</button>
+      <button class="nav-button profile-only hidden" onclick="showProfilePage()" data-i18n="profile">Profile</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="login" class="page active login-page">
+      <div class="login-container">
+        <div class="login-card">
+          <div class="login-header">
+            <img src="assets/logo.jpeg" alt="SASYAM logo" class="login-logo">
+            <h1>SASYAM</h1>
+            <p class="login-subtitle" data-i18n="eyebrow">Precision Agriculture Intelligence</p>
+          </div>
+          
+          <div class="login-content">
+            <p class="login-intro"><span data-i18n="developedBy">Developed by</span> <strong>Souvik Chakraborty</strong></p>
+            <p class="login-description" data-i18n="loginDescription">Unlock advanced yield analysis, profit forecasting, and crop optimization powered by AI.</p>
+            
+            <form id="sasyamLoginForm" onsubmit="loginUser(event)" style="margin-bottom: 16px;">
+              <div class="form-group" style="text-align: left; margin-bottom: 10px;">
+                <label style="color: #064e3b; display: block; margin-bottom: 5px;">Email Address</label>
+                <input type="email" id="loginEmail" required placeholder="your@email.com">
+              </div>
+              <div class="form-group" style="text-align: left; margin-bottom: 14px;">
+                <label style="color: #064e3b; display: block; margin-bottom: 5px;">Password</label>
+                <input type="password" id="loginPassword" required placeholder="Enter password">
+              </div>
+              <button type="submit" class="primary-action" style="width: 100%;">Sign In</button>
+            </form>
+
+            <div class="login-divider" data-i18n="or">OR</div>
+            
+            <div class="login-options">
+              <button type="button" class="sasyam-id-button" onclick="showSasyamIDCreation()">
+                <span class="sasyam-icon">ID</span>
+                <span data-i18n="createSasyamID">Create SASYAM ID</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="login-footer">
+            <p data-i18n="certified">Certified by AICTE | Verified by Partner Institutions</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SASYAM ID Signup Modal -->
+    <div id="sasyamIDSignupModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-overlay" onclick="closeSasyamIDModal()"></div>
+      <div class="modal-dialog glass-effect-panel">
+        <button class="modal-close" onclick="closeSasyamIDModal()" aria-label="Close registration">&times;</button>
+        <div class="modal-header">
+          <h2 data-i18n="signupTitle">Create Your SASYAM ID</h2>
+          <p data-i18n="signupSubtitle">No Google account needed. Create your own SASYAM ID to access the app.</p>
+        </div>
+        
+        <form id="sasyamSignupForm" onsubmit="createSasyamID(event)" class="modal-body">
+          <div class="form-group">
+            <label data-i18n="email">Email Address</label>
+            <input type="email" id="sasyamEmail" required placeholder="your@email.com">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="password">Password</label>
+            <div style="position: relative;">
+              <input type="password" id="sasyamPassword" required placeholder="At least 8 characters" minlength="8" style="padding-right: 40px;">
+              <button type="button" onclick="togglePasswordVisibility('sasyamPassword', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--green-900); font-size: 12px; font-weight: 600;" data-i18n="show">Show</button>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="passwordConfirm">Confirm Password</label>
+            <div style="position: relative;">
+              <input type="password" id="sasyamPasswordConfirm" required placeholder="Re-enter password" minlength="8" style="padding-right: 40px;">
+              <button type="button" onclick="togglePasswordVisibility('sasyamPasswordConfirm', this)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--green-900); font-size: 12px; font-weight: 600;" data-i18n="show">Show</button>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="phone">Mobile Number</label>
+            <input type="tel" id="sasyamPhone" required placeholder="Enter 10-digit mobile number" pattern="[0-9]{10}" title="Please enter exactly 10 digits">
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="name">Full Name (Farmer)</label>
+            <input type="text" id="sasyamName" required placeholder="Your name">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="farmLocation">Farm Location</label>
+            <input type="text" id="sasyamLocation" required placeholder="City/District">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="farmSize">Farm Size (Hectares)</label>
+            <input type="number" id="sasyamFarmSize" step="0.01" min="0" required placeholder="e.g., 5.5">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="experience">Experience (Years)</label>
+            <input type="number" id="sasyamExperience" min="0" max="100" required placeholder="Years of farming">
+          </div>
+          
+          <div class="form-group">
+            <label data-i18n="primaryCrop">Primary Crop</label>
+            <select id="sasyamCrop" required>
+              <option value="">-- Select Primary Crop --</option>
+              <option value="Wheat">Wheat</option>
+              <option value="Rice">Rice</option>
+              <option value="Sugarcane">Sugarcane</option>
+              <option value="Maize">Maize</option>
+              <option value="Potato">Potato</option>
+              <option value="Cotton">Cotton</option>
+              <option value="Soyabean">Soyabean</option>
+            </select>
+          </div>
+          
+          <div style="background: rgba(6, 78, 59, 0.1); padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 13px; color: var(--ink);">
+            <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; margin-bottom: 8px;">
+              <input type="checkbox" id="sasyamTerms" required style="width: auto; margin: 0;"> <span data-i18n="agreeTerms">I agree to the SASYAM Terms and Conditions</span>
+            </label>
+            <span data-i18n="dataSecurity">Your data is stored securely and never shared with third parties.</span>
+          </div>
+          
+          <div class="modal-actions">
+            <button type="submit" class="primary-action" data-i18n="createAccount">Create Account</button>
+            <button type="button" onclick="closeSasyamIDModal()" class="secondary-action" data-i18n="cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <section id="entrance" class="page">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="eyebrow">Precision agriculture intelligence</p>
+          <h1>SASYAM Analytical Engine</h1>
+          <p class="lead"><span data-i18n="developedBy">Developed by</span> <strong>Souvik Chakraborty</strong></p>
+          <p class="support" data-i18n="support">Certified and verified by partner institutions and government-backed initiatives.</p>
+          <button id="launchCalculator" class="primary-action" data-i18n="openCalculator">Open Yield Calculator</button>
+        </div>
+
+        <div class="verification-panel">
+          <h2 data-i18n="certified">Certified and Verified By</h2>
+          <div class="logo-grid">
+            <article class="logo-card wide">
+              <img src="assets/aicte_logo.png" alt="AICTE">
+              <span>AICTE Approved</span>
+            </article>
+            <article class="logo-card">
+              <img src="assets/ardent_logo.png" alt="Ardent Computech">
+              <span>Ardent Computech Pvt. Ltd.</span>
+            </article>
+            <article class="logo-card">
+              <img src="assets/msme_logo.png" alt="MSME">
+              <span>MSME</span>
+            </article>
+            <article class="logo-card">
+              <img src="assets/neat_logo.png" alt="NEAT">
+              <span>N.E.A.T Scheme</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator" class="page">
+      <div class="calculator-shell">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="farmParams">Farm parameters</p>
+          <h2>SASYAM Yield Calculator</h2>
+        </div>
+
+        <form id="yieldForm" class="calculator-grid">
+          <label>
+            <span data-i18n="state">State</span>
+            <select id="state" name="state" required></select>
+          </label>
+          <label id="districtField" class="hidden">
+            <span data-i18n="district">District</span>
+            <select id="district" name="district" disabled></select>
+          </label>
+          <label>
+            <span data-i18n="crop">Crop</span>
+            <select id="crop" name="crop" required></select>
+          </label>
+          <label>
+            <span data-i18n="variety">Variety</span>
+            <select id="variety" name="variety" required></select>
+          </label>
+          <label>
+            <span data-i18n="season">Season</span>
+            <select id="season" name="season" required></select>
+          </label>
+          <label>
+            <span data-i18n="year">Target Year</span>
+            <input type="number" id="year" name="year" min="2000" max="2035" value="2024">
+          </label>
+          <label>
+            <span data-i18n="area">Area (Hectares)</span>
+            <input type="number" id="area" name="area" min="0.1" max="100" step="0.1" value="1">
+          </label>
+          <label>
+            <span data-i18n="seed">Seed Rate (kg/ha)</span>
+            <input type="number" id="seed" name="seed" min="0" max="500" step="0.1" value="80">
+          </label>
+          <label>
+            <span data-i18n="fertilizer">Fertilizer (kg/ha)</span>
+            <input type="number" id="fertilizer" name="fertilizer" min="0" max="1000" step="0.1" value="150">
+          </label>
+          <label>
+            <span data-i18n="pesticide">Pesticide (kg/ha)</span>
+            <input type="number" id="pesticide" name="pesticide" min="0" max="65" step="0.1" value="2">
+          </label>
+          <label>
+            <span data-i18n="rainfall">Annual Rainfall Range (mm)</span>
+            <input type="number" id="rainfall" name="rainfall" min="0" max="6000" step="1" value="1100" placeholder="Enter annual rainfall in mm">
+            <output id="rainfallValue">1100 mm</output>
+            <small id="rainfallRecommendation" class="recommendation-text"></small>
+          </label>
+          <label class="weather-field">
+            <span data-i18n="temperature">Actual Temp (C)</span>
+            <div class="weather-input-row">
+              <input type="number" id="temperature" name="temperature" min="-10" max="55" step="0.1" value="28">
+              <button type="button" id="liveWeatherButton" class="secondary-action small-button" data-i18n="useCurrentWeather">Use Current Weather</button>
+            </div>
+            <small id="weatherStatus" class="weather-status">Tap the button to fill temperature from your current location.</small>
+          </label>
+          <label class="cost-field">
+            <span data-i18n="cost">Production Cost (per ha)</span>
+            <input type="number" id="productionCost" name="productionCost" min="0" step="100" value="0">
+            <small data-i18n="costHelp">Turn on actual cost below to use this value.</small>
+          </label>
+          <label class="range-label">
+            <span data-i18n="climate">Climate Stress Index</span>
+            <input type="range" id="climateStress" name="climateStress" min="-2" max="2" step="0.1" value="0">
+            <output id="climateStressValue">0.0</output>
+          </label>
+          <label class="range-label">
+            <span data-i18n="soil">Soil Nutrient Index</span>
+            <input type="range" id="soilNutrient" name="soilNutrient" min="0" max="1" step="0.01" value="0.5">
+            <output id="soilNutrientValue">0.50</output>
+          </label>
+          <label class="check-row cost-toggle">
+            <input type="checkbox" id="useCustomCost" name="useCustomCost">
+            <span data-i18n="useCost">Use my actual costs</span>
+          </label>
+
+          <section id="blackSwanPanel" class="black-swan-panel">
+  <div class="section-heading">
+    <p class="eyebrow" data-i18n="blackSwanAlerts">Black Swan Alerts</p>
+    <h3 data-i18n="blackSwanTitle">Black Swan What If Simulator</h3>
+  </div>
+  <p class="small-text" data-i18n="blackSwanDescription">Estimate potential loss from extreme heatwave, drought, flood or cyclone events.</p>
+  <div class="black-swan-grid">
+    <label class="event-option"><input type="checkbox" id="heatwaveEvent"><span data-i18n="heatwave">Heatwave</span></label>
+    <label class="event-option"><input type="checkbox" id="droughtEvent"><span data-i18n="drought">Drought</span></label>
+    <label class="event-option"><input type="checkbox" id="floodEvent"><span data-i18n="flood">Flood</span></label>
+    <label class="event-option"><input type="checkbox" id="cycloneEvent"><span data-i18n="cyclone">Cyclone</span></label>
+  </div>
+  <label class="range-label">
+    <span data-i18n="severity">Severity (%)</span>
+    <input type="range" id="blackSwanSeverity" min="0" max="100" step="5" value="40">
+    <output id="blackSwanSeverityValue">40%</output>
+  </label>
+  <button type="button" id="calculateBlackSwan" class="secondary-action small-button" data-i18n="calculateLoss">Calculate Loss</button>
+  <div id="blackSwanResult" class="black-swan-result" aria-live="polite"></div>
+</section>
+
+          <button type="submit" class="submit-action" data-i18n="submit">Generate Precision Report</button>
+        </form>
+
+        <aside id="resultPanel" class="result-panel hidden" aria-live="polite">
+          <div class="result-hero">
+            <span data-i18n="totalYield">Total Predicted Yield</span>
+            <strong id="yieldValue">0.00</strong>
+            <small data-i18n="qtlHa">Quintals Per Hectare</small>
+          </div>
+          <div class="metric-grid">
+            <div>
+              <span data-i18n="msp">Market Price (MSP)</span>
+              <strong id="mspValue">Rs. 0</strong>
+            </div>
+            <div>
+              <span data-i18n="revenue">Total Revenue</span>
+              <strong id="revenueValue">Rs. 0</strong>
+            </div>
+            <div>
+              <span data-i18n="profit">Net Profit</span>
+              <strong id="profitValue">Rs. 0</strong>
+            </div>
+            <div>
+              <span>ROI</span>
+              <strong id="roiValue">0%</strong>
+            </div>
+          </div>
+          <div id="statusCard" class="status-card">
+            <span data-i18n="status">Performance Status</span>
+            <strong id="statusLabel">Waiting</strong>
+            <p id="statusNote" data-i18n="statusNote">Enter farm parameters to generate a report.</p>
+          </div>
+
+          <button id="downloadPdf" class="download-action" type="button" data-i18n="downloadPdf">Download PDF Report</button>
+
+          <div class="chat-panel">
+            <h3 data-i18n="chatTitle">Chat with Results</h3>
+            <div id="chatMessages" class="chat-messages">
+              <div class="chat-bubble bot" data-i18n="chatWelcome">SASYAM Intelligence Core Active. Generate a report and ask me anything about yield, profit, fertilizer, or risk.</div>
+            </div>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" type="text" data-i18n-placeholder="chatPlaceholder" placeholder="Ask about profit...">
+              <button type="submit" data-i18n="ask">Ask</button>
+            </form>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="reportModal" class="report-modal hidden" role="dialog" aria-modal="true" aria-labelledby="dialogTitle">
+    <div class="report-dialog">
+      <button id="closeReportDialog" class="dialog-close" type="button" aria-label="Close report">X</button>
+      <div class="dialog-head">
+        <p class="eyebrow">SASYAM 160-Tier XAI Intelligence</p>
+        <h2 id="dialogTitle" data-i18n="reportTitle">Precision Report Explanation</h2>
+        <p id="dialogDescription" data-i18n="reportDescription">Transparent report output with yield, profit, ROI, and explainable AI reasoning.</p>
+      </div>
+      <div class="dialog-metrics">
+        <div>
+          <span id="dialogYieldLabel" data-i18n="yieldLabel">Yield</span>
+          <strong id="dialogYield">0.00 Q/Ha</strong>
+        </div>
+        <div>
+          <span id="dialogProfitLabel" data-i18n="profitLabel">Profit</span>
+          <strong id="dialogProfit">Rs. 0</strong>
+        </div>
+        <div>
+          <span id="dialogRoiLabel" data-i18n="roiLabel">ROI</span>
+          <strong id="dialogRoi">0%</strong>
+        </div>
+        <div>
+          <span id="dialogTierLabel" data-i18n="xaiTierLabel">XAI Tier</span>
+          <strong id="dialogTier">0/160</strong>
+        </div>
+      </div>
+      <section class="xai-panel">
+        <h3 id="xaiTierTitle" data-i18n="xaiTitle">160-Tier XAI</h3>
+        <p id="xaiSummary"></p>
+        <div id="xaiList" class="xai-list"></div>
+      </section>
+      <div class="dialog-actions">
+        <button id="dialogDownloadPdf" class="download-action" type="button" data-i18n="downloadPdf">Download PDF Report</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

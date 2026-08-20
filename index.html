@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SASYAM - Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-container">
+      <div class="login-card">
+        <div class="login-header">
+          <img src="assets/logo.jpeg" alt="SASYAM logo" class="login-logo">
+          <h1>SASYAM</h1>
+          <p class="login-subtitle" data-i18n="eyebrow">Precision Agriculture Intelligence</p>
+        </div>
+        <div class="login-content">
+          <p class="login-intro"><span data-i18n="developedBy">Developed by</span> <strong>Souvik Chakraborty</strong></p>
+          <p class="login-description" data-i18n="loginDescription">Unlock advanced yield analysis, profit forecasting, and crop optimization powered by AI.</p>
+          <form id="sasyamLoginForm" class="mb-16">
+            <div class="form-group text-left mb-10">
+              <label class="form-label">Email Address</label>
+              <input type="email" id="loginEmail" required placeholder="your@email.com">
+            </div>
+            <div class="form-group text-left mb-14">
+              <label class="form-label">Password</label>
+              <input type="password" id="loginPassword" required placeholder="Enter password">
+            </div>
+            <button type="submit" class="primary-action full-width">Sign In</button>
+          </form>
+          <div class="login-divider" data-i18n="or">OR</div> 
+          <div class="login-options">
+            <button type="button" id="navToRegister" class="sasyam-id-button">
+              <span class="sasyam-icon">ID</span>
+              <span data-i18n="createSasyamID">Create SASYAM ID</span>
+            </button>
+          </div>
+        </div>
+        <div class="login-footer">
+          <p data-i18n="certified">Certified by AICTE | Verified by Partner Institutions</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
