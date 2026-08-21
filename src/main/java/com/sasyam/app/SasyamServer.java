@@ -41,7 +41,7 @@ public class SasyamServer {
     private static final Path LEGACY_SECRETS_FILE = LOCAL_MODEL_DIR.resolve(".streamlit").resolve("secrets.toml");
 
     public static void main(String[] args) throws IOException {
-        int port = Integer.parseInt(System.getenv().getOrDefault("SASYAM_PORT", "8080"));
+        int port = Integer.parseInt(System.getenv().getOrDefault("PORT", System.getenv().getOrDefault("SASYAM_PORT", "8080")));
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/api/options", SasyamServer::handleOptions);
         server.createContext("/api/predict", SasyamServer::handlePredict);
@@ -50,7 +50,7 @@ public class SasyamServer {
         server.createContext("/", SasyamServer::handleStatic);
         server.setExecutor(Executors.newFixedThreadPool(8));
         server.start();
-        System.out.println("SASYAM Java Full Stack App running at http://localhost:" + port);
+        System.out.println("SASYAM Java Full Stack App running on port: " + port);
         System.out.println("Model directory: " + DEFAULT_MODEL_DIR);
         System.out.println("Python runtime check: " + PROJECT_PYTHON);
     }
