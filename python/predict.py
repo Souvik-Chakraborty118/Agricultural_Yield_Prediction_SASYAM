@@ -434,8 +434,6 @@ def get_secret(name):
 
 def options():
     try:
-        def options():
-    try:
         csv_path = asset(CSV_FILE) if os.path.exists(asset(CSV_FILE)) else asset(LEGACY_CSV_FILE)
         df = pd.read_csv(csv_path)
         varieties_by_crop = {
