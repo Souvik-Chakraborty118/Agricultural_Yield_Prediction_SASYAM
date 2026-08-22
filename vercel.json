@@ -1,8 +1,9 @@
 {
+  "public": ".",
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "https://<YOUR-RENDER-URL>.onrender.com/api/:path*"
+      "source": "/api/:match*",
+      "destination": "https://sasyam-backend.onrender.com/api/:match*"
     }
   ]
 }
