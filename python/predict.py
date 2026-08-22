@@ -434,7 +434,10 @@ def get_secret(name):
 
 def options():
     try:
-        _, _, _, _, _, df, _ = load_assets()
+        def options():
+    try:
+        csv_path = asset(CSV_FILE) if os.path.exists(asset(CSV_FILE)) else asset(LEGACY_CSV_FILE)
+        df = pd.read_csv(csv_path)
         varieties_by_crop = {
             crop: sorted(df.loc[df["Crop"] == crop, "Variety"].dropna().astype(str).unique().tolist())
             for crop in sorted(df["Crop"].dropna().astype(str).unique().tolist())
