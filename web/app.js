@@ -713,7 +713,7 @@ async function fetchLiveWeather() {
 }
 
 async function loadOptions() {
-  const response = await fetch("/api/options");
+  const response = await fetch("https://sasyam-backend.onrender.com/api/options");
   const data = await response.json();
   if (!data.ok) {
     throw new Error(data.error || "Unable to load model options.");
@@ -962,7 +962,7 @@ async function submitChat(event) {
   const thinkingBubble = addChatBubble("Thinking...", "bot");
 
   try {
-    const response = await fetch("/api/chat", {
+    const response = await fetch("https://sasyam-backend.onrender.com/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message, lang: state.lang, ...chatReportPayload() })
@@ -1009,7 +1009,7 @@ async function submitForm(event) {
   try{
     const payload = formPayload();
     state.latestInput = payload;
-    const response = await fetch("/api/predict", {
+    const response = await fetch("https://sasyam-backend.onrender.com/api/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
