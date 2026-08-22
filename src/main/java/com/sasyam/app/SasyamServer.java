@@ -372,7 +372,7 @@ public class SasyamServer {
                 failures.append("Failed: ").append(ex.getMessage()).append(" ");
             }
         }
-        return new PythonResult(500, "{\"ok\":false,\"error\":\"Python runtime is not ready.\"}");
+        return new PythonResult(500, "{\"ok\":false,\"error\":\"" + escapeJson(failures.toString()) + "\"}");
     }
 
     private static String readStream(InputStream stream) {
