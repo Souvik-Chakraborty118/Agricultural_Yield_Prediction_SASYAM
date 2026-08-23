@@ -393,8 +393,22 @@ public class SasyamServer {
     }
 
     private static void sendJson(HttpExchange exchange, int status, String json) throws IOException {
+        String method = exchange.getRequestMethod();
+        
+        // Global CORS headers for all JSON responses
+        exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, HEAD");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Headers", "Content-Type, Authorization");
         exchange.getResponseHeaders().set("Content-Type", "application/json; charset=utf-8");
         exchange.getResponseHeaders().set("Cache-Control", "no-store");
+        
+        // Safely intercept HEAD and OPTIONS without crashing the server
+        if (method.equalsIgnoreCase("HEAD") || method.equalsIgnoreCase("OPTIONS")) {
+            exchange.sendResponseHeaders(method.equalsIgnoreCase("OPTIONS") ? 204 : status, -1);
+            exchange.close();
+            return;
+        }
+
         byte[] bytes = json.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(status, bytes.length);
         try (OutputStream os = exchange.getResponseBody()) {
@@ -403,6 +417,18 @@ public class SasyamServer {
     }
 
     private static void sendText(HttpExchange exchange, int status, String text, String contentType) throws IOException {
+        String method = exchange.getRequestMethod();
+        
+        exchange.getResponseHeaders().set("Access-Control-Allow-Origin", "*");
+        exchange.getResponseHeaders().set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, HEAD");
+        
+        // Safely intercept HEAD and OPTIONS without crashing the server
+        if (method.equalsIgnoreCase("HEAD") || method.equalsIgnoreCase("OPTIONS")) {
+            exchange.sendResponseHeaders(method.equalsIgnoreCase("OPTIONS") ? 204 : status, -1);
+            exchange.close();
+            return;
+        }
+
         exchange.getResponseHeaders().set("Content-Type", contentType);
         byte[] bytes = text.getBytes(StandardCharsets.UTF_8);
         exchange.sendResponseHeaders(status, bytes.length);
