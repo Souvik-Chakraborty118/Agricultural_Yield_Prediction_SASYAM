@@ -65,7 +65,17 @@ public class SasyamServer {
     }
 
     private static void handlePredict(HttpExchange exchange) throws IOException {
-        if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
+        String method = exchange.getRequestMethod();
+        //Intercept CORS preflight and HEAD requests BEFORE they hit sendJson
+        if (method.equalsIgnoreCase("OPTIONS") || method.equalsIgnoreCase("HEAD")) {
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "POST, OPTIONS, HEAD");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            exchange.sendResponseHeaders(204, -1);
+            exchange.close();
+            return;
+        }
+        if (!"POST".equalsIgnoreCase(method)) {
             sendJson(exchange, 405, "{\"ok\":false,\"error\":\"Method not allowed\"}");
             return;
         }
@@ -73,7 +83,6 @@ public class SasyamServer {
         PythonResult result = runPython("predict", body);
         sendJson(exchange, result.exitCode == 0 ? 200 : 500, result.output);
     }
-
     private static void handleChat(HttpExchange exchange) throws IOException {
         if (!"POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             sendJson(exchange, 405, "{\"ok\":false,\"error\":\"Method not allowed\"}");
