@@ -655,14 +655,24 @@ async function submitForm(event) {
   button.disabled = true;
   button.textContent = t("sync");
 
+  // Setup the 40-second timeout controller
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 40000);
+
   try {
     const payload = formPayload();
     state.latestInput = payload;
+    
+    // Add the abort signal to the fetch request
     const response = await fetch("/api/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: controller.signal
     });
+    
+    // Clear timeout if the server responds in time
+    clearTimeout(timeoutId);
     
     if (!response.ok) {
       throw new Error(`Server error: ${response.status} ${response.statusText}`);
@@ -672,17 +682,32 @@ async function submitForm(event) {
     if (!result.ok) {
       throw new Error(result.error || "Prediction failed.");
     }
+    
     result.input = payload;
     renderResult(result);
+    
   } catch (error) {
     console.error("Form submission error:", error);
     const box = document.getElementById("chatMessages");
-    if (box) {
-      addChatBubble(`Error: ${error.message}`, "bot");
+    
+    // Handle the specific timeout abort error
+    if (error.name === "AbortError") {
+      const timeoutMsg = "The server is warming up or taking too long. Please retry in a moment.";
+      if (box) {
+        addChatBubble(`Error: ${timeoutMsg}`, "bot");
+      } else {
+        alert(timeoutMsg);
+      }
     } else {
-      alert(`Error: ${error.message}`);
+      // Handle standard network or JSON parsing errors
+      if (box) {
+        addChatBubble(`Error: ${error.message}`, "bot");
+      } else {
+        alert(`Error: ${error.message}`);
+      }
     }
   } finally {
+    // This finally block ensures the UI resets whether it succeeds, fails, or times out
     button.disabled = false;
     button.textContent = originalText;
   }
