@@ -14,6 +14,10 @@ RUN .venv/bin/pip install -r requirements.txt
 RUN mkdir -p out
 RUN javac -encoding UTF-8 -d out src/main/java/com/sasyam/app/SasyamServer.java
 
+# Pull actual LFS model files
+RUN apt-get update && apt-get install -y git-lfs && git lfs install
+RUN git lfs pull
+
 #Set Environment Variables
 ENV SASYAM_PORT=8080
 ENV SASYAM_PYTHON=/app/.venv/bin/python
