@@ -179,7 +179,7 @@ const i18n = {
     lossProfitPhrase: "லாப இழப்பு", lossYieldPhrase: "மகசூல் இழப்பு", createAccount: "கணக்கை உருவாக்கு",
     signupTitle: "SASYAM ID உருவாக்கு", email: "மின்னஞ்சல்", password: "கடவுச்சொல்", passwordConfirm: "கடவுச்சொல்லை உறுதிப்படுத்து",
     phone: "தொலைபேசி எண்", name: "முழு பெயர்", farmLocation: "பண்ணை இடம்", farmSize: "பண்ணை அளவு",
-    experience: "அனுபவம்", primaryCrop: "முதன்மை பயிர்", createSasyamID: "SASYAM ID உருவாக்கு",
+    experience: "अनुபவம்", primaryCrop: "முதன்மை பயிர்", createSasyamID: "SASYAM ID உருவாக்கு",
     backToLogin: "உள்நுழைவுக்குத் திரும்பு", show: "காட்டு", hide: "மறை", logout: "வெளியேறு", editProfile: "சுயவிவரத்தைத் திருத்து",
     or: "அல்லது", loginDescription: "AI மூலம் இயங்கும் மேம்பட்ட மகசூல் பகுப்பாய்வு மற்றும் லாப முன்னறிவிப்பைத் திறக்கவும்."
   }
@@ -220,7 +220,7 @@ const stateNameTranslations = {
   mr: { "Andhra Pradesh": "आंध्र प्रदेश", "Arunachal Pradesh": "अरुणाचल प्रदेश", Assam: "आसाम", Bihar: "बिहार", Chhattisgarh: "छत्तीसगड", Delhi: "दिल्ली", Goa: "गोवा", Gujarat: "गुजरात", Haryana: "हरियाणा", "Himachal Pradesh": "हिमाचल प्रदेश", "Jammu And Kashmir": "जम्मू आणि काश्मीर", Jharkhand: "झारखंड", Karnataka: "कर्नाटक", Kerala: "केरळ", "Madhya Pradesh": "मध्य प्रदेश", Maharashtra: "महाराष्ट्र", Manipur: "मणिपूर", Meghalaya: "मेघालय", Mizoram: "मिझोरम", Nagaland: "नागालँड", Odisha: "ओडिशा", Puducherry: "पुडुचेरी", Punjab: "पंजाब", Sikkim: "सिक्किम", "Tamil Nadu": "तमिळनाडू", Telangana: "तेलंगणा", Tripura: "त्रिपुरा", "Uttar Pradesh": "उत्तर प्रदेश", Uttarakhand: "उत्तराखंड", "West Bengal": "पश्चिम बंगाल" },
   gu: { "Andhra Pradesh": "આંધ્ર પ્રદેશ", "Arunachal Pradesh": "અરુણાચલ પ્રદેશ", Assam: "આસામ", Bihar: "બિહાર", Chhattisgarh: "છત્તીસગઢ", Delhi: "દિલ્હી", Goa: "ગોવા", Gujarat: "ગુજરાત", Haryana: "હરિયાણા", "Himachal Pradesh": "હિમાચલ પ્રદેશ", "Jammu And Kashmir": "જમ્મુ અને કાશ્મીર", Jharkhand: "ઝારખંડ", Karnataka: "કર્ણાટક", Kerala: "કેરળ", "Madhya Pradesh": "મધ્ય પ્રદેશ", Maharashtra: "મહારાષ્ટ્ર", Manipur: "મણિપુર", Meghalaya: "મેઘાલય", Mizoram: "મિઝોરમ", Nagaland: "નાગાલેન્ડ", Odisha: "ઓડિશા", Puducherry: "પુડુચેરી", Punjab: "પંજાબ", Sikkim: "સિક્કિમ", "Tamil Nadu": "તમિલનાડુ", Telangana: "તેલંગાણા", Tripura: "ત્રિપુરા", "Uttar Pradesh": "ઉત્તર પ્રદેશ", Uttarakhand: "ઉત્તરાખંડ", "West Bengal": "પશ્ચિમ બંગાળ" },
   kn: { "Andhra Pradesh": "ಆಂಧ್ರ ಪ್ರದೇಶ", "Arunachal Pradesh": "ಅರುಣಾಚಲ ಪ್ರದೇಶ", Assam: "ಅಸ್ಸಾಂ", Bihar: "ಬಿಹಾರ", Chhattisgarh: "ಛತ್ತೀಸ್‌ಗಢ", Delhi: "ದೆಹಲಿ", Goa: "ಗೋವಾ", Gujarat: "ಗುಜರಾತ್", Haryana: "ಹರಿಯಾಣ", "Himachal Pradesh": "ಹಿಮಾಚಲ ಪ್ರದೇಶ", "Jammu And Kashmir": "ಜಮ್ಮು ಮತ್ತು ಕಾಶ್ಮೀರ", Jharkhand: "ಝಾರ್ಖಂಡ್", Karnataka: "ಕರ್ನಾಟಕ", Kerala: "ಕೇರಳ", "Madhya Pradesh": "ಮಧ್ಯ ಪ್ರದೇಶ", Maharashtra: "ಮಹಾರಾಷ್ಟ್ರ", Manipur: "ಮಣಿಪುರ", Meghalaya: "ಮೇಘಾಲಯ", Mizoram: "ಮಿಜೋರಾಂ", Nagaland: "ನಾಗಾಲ್ಯಾಂಡ್", Odisha: "ಒಡಿಶಾ", Puducherry: "ಪುದುಚೇರಿ", Punjab: "ಪಂಜಾಬ್", Sikkim: "ಸಿಕ್ಕಿಂ", "Tamil Nadu": "ತಮಿಳುನಾಡು", Telangana: "ತೆಲಂಗಾಣ", Tripura: "ತ್ರಿಪುರ", "Uttar Pradesh": "ಉತ್ತರ ಪ್ರದೇಶ", Uttarakhand: "ಉತ್ತರಾಖಂಡ್", "West Bengal": "ಪಶ್ಚಿಮ ಬಂಗಾಳ" },
-  ml: { "Andhra Pradesh": "ആന്ധ്ര പ്രദേശ്", "Arunachal Pradesh": "അരുണാചൽ പ്രദേശ്", Assam: "അസം", Bihar: "ബിഹാർ", Chhattisgarh: "ഛത്തീസ്ഗഢ്", Delhi: "ഡൽഹി", Goa: "ഗോവ", Gujarat: "ഗുജറാത്ത്", Haryana: "ഹരിയാന", "Himachal Pradesh": "ഹിമാചൽ പ്രദേശ്", "Jammu And Kashmir": "ജമ്മു കാശ്മീർ", Jharkhand: "ഝാർഖണ്ഡ്", Karnataka: "കർണാടക", Kerala: "കേരളം", "Madhya Pradesh": "മധ്യ പ്രദേശ്", Maharashtra: "മഹാരാഷ്ട്ര", Manipur: "മണിപ്പൂർ", Meghalaya: "മേഘാലയ", Mizoram: "മിസോറം", Nagaland: "നാഗാലാൻഡ്", Odisha: "ഒഡീഷ", Puducherry: "പുതുച്ചേരി", Punjab: "പഞ്ചാബ്", Sikkim: "സിക്കിം", "Tamil Nadu": "തമിഴ്നാട്", Telangana: "തെലങ്കാന", Tripura: "ത്രിപുര", "Uttar Pradesh": "ഉത്തർ പ്രദേശ്", Uttarakhand: "ഉത്തരാഖണ്ഡ്", "West Bengal": "പശ്ചിമ ബംഗാൾ" },
+  ml: { "Andhra Pradesh": "ആന്ധ്ര പ്രദേശ്", "Arunachal Pradesh": "അരുണാചൽ പ്രദേശ്", Assam: "അസം", Bihar: "ബിഹാർ", Chhattisgarh: "ഛത്തീസ്ഗഢ്", Delhi: "ഡൽഹി", Goa: "ഗോവ", Gujarat: "ഗുജറാത്ത്", Haryana: "ഹരിയാന", "Himachal Pradesh": "ഹിമാചൽ പ്രദേശ്", "Jammu കാശ്മീർ", Jharkhand: "ഝാർഖണ്ഡ്", Karnataka: "കർണാടക", Kerala: "കേരളം", "Madhya Pradesh": "മധ്യ പ്രദേശ്", Maharashtra: "മഹാരാഷ്ട്ര", Manipur: "മണിപ്പൂർ", Meghalaya: "മേഘാലയ", Mizoram: "മിസോറം", Nagaland: "നാഗാലാൻഡ്", Odisha: "ഒഡീഷ", Puducherry: "പുതുച്ചേരി", Punjab: "പഞ്ചാബ്", Sikkim: "സിക്കിം", "Tamil Nadu": "തമിഴ്നാട്", Telangana: "തെലങ്കാന", Tripura: "ത്രിപുര", "Uttar Pradesh": "ഉത്തർ പ്രദേശ്", Uttarakhand: "ഉത്തരാഖണ്ഡ്", "West Bengal": "പശ്ചിമ ബംഗാൾ" },
   pa: { "Andhra Pradesh": "ਆਂਧ੍ਰ ਪ੍ਰਦੇਸ਼", "Arunachal Pradesh": "ਅਰੁਣਾਚਲ ਪ੍ਰਦੇਸ਼", Assam: "ਅਸਾਮ", Bihar: "ਬਿਹਾਰ", Chhattisgarh: "ਛੱਤੀਸਗੜ੍ਹ", Delhi: "ਦਿੱਲੀ", Goa: "ਗੋਆ", Gujarat: "ਗੁਜਰਾਤ", Haryana: "ਹਰਿਆਣਾ", "Himachal Pradesh": "ਹਿਮਾਚਲ ਪ੍ਰਦੇਸ਼", "Jammu And Kashmir": "ਜੰਮੂ ਅਤੇ ਕਸ਼ਮੀਰ", Jharkhand: "ਝਾਰਖੰਡ", Karnataka: "ਕਰਨਾਟਕ", Kerala: "ਕੇਰਲ", "Madhya Pradesh": "ਮੱਧ ਪ੍ਰਦੇਸ਼", Maharashtra: "ਮਹਾਰਾਸ਼ਟਰ", Manipur: "ਮਣੀਪੁਰ", Meghalaya: "ਮੇਘਾਲਯਾ", Mizoram: "ਮਿਜ਼ੋਰਮ", Nagaland: "ਨਾਗਾਲੈਂਡ", Odisha: "ਓਡਿਸ਼ਾ", Puducherry: "ਪੁਡੁਚੇਰੀ", Punjab: "ਪੰਜਾਬ", Sikkim: "ਸਿੱਕਿਮ", "Tamil Nadu": "ਤਾਮਿਲਨਾਡੂ", Telangana: "ਤੇਲੰਗਾਨਾ", Tripura: "ਤ੍ਰਿਪੁਰਾ", "Uttar Pradesh": "ਉੱਤਰ ਪ੍ਰਦੇਸ਼", Uttarakhand: "ਉੱਤਰਾਖੰਡ", "West Bengal": "ਪੱਛਮੀ ਬੰਗਾਲ" },
   ne: { "Andhra Pradesh": "आन्ध्र प्रदेश", "Arunachal Pradesh": "अरुणाचल प्रदेश", Assam: "असम", Bihar: "बिहार", Chhattisgarh: "छत्तीसगढ", Delhi: "दिल्ली", Goa: "गोवा", Gujarat: "गुजरात", Haryana: "हरियाणा", "Himachal Pradesh": "हिमाचल प्रदेश", "Jammu And Kashmir": "जम्मू र कश्मीर", Jharkhand: "झारखण्ड", Karnataka: "कर्नाटक", Kerala: "केरल", "Madhya Pradesh": "मध्य प्रदेश", Maharashtra: "महाराष्ट्र", Manipur: "मणिपुर", Meghalaya: "मेघालय", Mizoram: "मिजोरम", Nagaland: "नागाल्याण्ड", Odisha: "ओडिशा", Puducherry: "पुडुचेरी", Punjab: "पञ्जाब", Sikkim: "सिक्किम", "Tamil Nadu": "तमिलनाडु", Telangana: "तेलंगाना", Tripura: "त्रिपुरा", "Uttar Pradesh": "उत्तर प्रदेश", Uttarakhand: "उत्तराखण्ड", "West Bengal": "पश्चिम बंगाल" }
 };
@@ -342,8 +342,12 @@ function populateSelect(elementId, items) {
   });
   if (items.includes(currentValue)) select.value = currentValue;
 }
+
+// ==========================================
+// 1. UPDATED: Bypassed Vercel for /api/options
+// ==========================================
 async function loadOptions() {
-  const response = await fetch("/api/options");
+  const response = await fetch("https://sasyam-backend.onrender.com/api/options");
   const data = await response.json();
   if (!data.ok) throw new Error(data.error || "Unable to load model options.");
   state.options = data;
@@ -357,6 +361,7 @@ async function loadOptions() {
   }
   updateRainfallRange();
 }
+
 function updateWeatherStatus(message, isError = false) {
   const status = document.getElementById("weatherStatus");
   if (!status) return;
@@ -627,6 +632,10 @@ function chatReportPayload() {
     soilNutrient: Number(input.soilNutrient || 0)
   };
 }
+
+// ==========================================
+// 2. UPDATED: Bypassed Vercel for /api/chat
+// ==========================================
 async function submitChat(event) {
   event.preventDefault();
   const input = document.getElementById("chatInput");
@@ -636,7 +645,7 @@ async function submitChat(event) {
   input.value = "";
   const thinkingBubble = addChatBubble("Thinking...", "bot");
   try {
-    const response = await fetch("/api/chat", {
+    const response = await fetch("https://sasyam-backend.onrender.com/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message, lang: state.lang, ...chatReportPayload() })
@@ -648,6 +657,10 @@ async function submitChat(event) {
     thinkingBubble.textContent = error.message;
   }
 }
+
+// ==========================================
+// 3. UPDATED: Bypassed Vercel for /api/predict
+// ==========================================
 async function submitForm(event) {
   event.preventDefault();
   const button = event.currentTarget.querySelector(".submit-action");
@@ -663,8 +676,8 @@ async function submitForm(event) {
     const payload = formPayload();
     state.latestInput = payload;
     
-    // Add the abort signal to the fetch request
-    const response = await fetch("/api/predict", {
+    // Add the abort signal to the fetch request, pointing to Render
+    const response = await fetch("https://sasyam-backend.onrender.com/api/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -712,6 +725,7 @@ async function submitForm(event) {
     button.textContent = originalText;
   }
 }
+
 //AUTH & ROUTING
 function loginUser(event) {
   event.preventDefault();
